@@ -74,9 +74,10 @@ Once the app is launched, you can:
 
 ## Example Interaction:
 
-![alt text](/demonstration/demonstration.mp4)
+[![Watch the demo](https://img.youtube.com/vi/HxUQpRkIVw4/maxresdefault.jpg)](https://www.youtube.com/watch?v=HxUQpRkIVw4)
 
 
+<!-- https://youtu.be/HxUQpRkIVw4 -->
 
 ## Notes:
 - Need to ensure that your OpenAI API key is valid and kept secure.
