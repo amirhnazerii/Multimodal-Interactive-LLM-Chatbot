@@ -75,7 +75,7 @@ Once the app is launched, you can:
 
 ## Example Interaction:
 
-![Watch the demo](/demonstration/Custom Multimodal Interactive LLM Chatbot.png)
+![Watch the demo](/demonstration/Custom-Multimodal-Interactive-LLM-Chatbot.png)
 
 
 
