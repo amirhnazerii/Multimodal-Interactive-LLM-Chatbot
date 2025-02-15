@@ -72,9 +72,11 @@ Once the app is launched, you can:
 * Interact with the chatbot using the web UI.
 * Upload images for AI analysis (in the web UI or CLI mode).
 
+
 ## Example Interaction:
 
-[![Watch the demo](https://img.youtube.com/vi/HxUQpRkIVw4/maxresdefault.jpg)](https://www.youtube.com/watch?v=HxUQpRkIVw4)
+[![Watch the demo](demonstration/Custom Multimodal Interactive LLM Chatbot.png)](https://www.youtube.com/watch?v=HxUQpRkIVw4)
+
 
 
 <!-- https://youtu.be/HxUQpRkIVw4 -->
