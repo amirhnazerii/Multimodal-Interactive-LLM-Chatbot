@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot</title>
+    <style>
+        /* Basic styling for the chatbot interface */
+        body { font-family: Arial, sans-serif; }
+        .chat-container { width: 55%; margin: auto; }
+        .chat-box { border: 1px solid #ccc; padding: 10px; height: 400px; overflow-y: scroll; }
+        .input-box { margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <!-- Main container for the chatbot UI -->
+    <div class="chat-container">
+        <h2>Chat with AI</h2>
+        <div class="chat-box" id="chatBox"></div>
+        <div class="input-box">
+            <input type="text" id="userInput" placeholder="Type a message...">
+            <input type="file" id="imageInput" accept="image/*">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        // API server URL
+        const SERVER_URL = "http://127.0.0.1:5000/chat"; 
+
+        /**
+         * Sends a message or image to the chatbot backend and displays the response.
+         */
+        async function sendMessage() {
+            const userInput = document.getElementById("userInput").value.trim();
+            const imageInput = document.getElementById("imageInput").files[0];
+            const chatBox = document.getElementById("chatBox");
+
+            if (!userInput && !imageInput) {
+                alert("Please enter a message or select an image.");
+                return;
+            }
+
+            let imageBase64 = "";
+            if (imageInput) {
+                imageBase64 = await toBase64(imageInput);
+            }
+
+            // Append user input to chat box
+            chatBox.innerHTML += `<p><strong>You:</strong> ${userInput || "[Image Sent]"}</p>`;
+            document.getElementById("userInput").value = "";
+            document.getElementById("imageInput").value = "";
+
+            try {
+                const response = await fetch(SERVER_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ input: userInput, image_path: imageBase64 })
+                });
+
+                if (!response.ok) {
+                    throw new Error("Server error");
+                }
+
+                const data = await response.json();
+                chatBox.innerHTML += `<p><strong>AI:</strong> ${data.response}</p>`;
+            } catch (error) {
+                chatBox.innerHTML += `<p><strong>Error:</strong> Could not connect to the server. Please check the server status.</p>`;
+            }
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        /**
+         * Converts an image file to Base64 format.
+         * @param {File} file - The image file to convert.
+         * @returns {Promise<string>} - A promise that resolves with the Base64 string.
+         */
+        function toBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = () => resolve(reader.result.split(",")[1]); // Extract only Base64 data
+                reader.onerror = reject;
+            });
+        }
+    </script>
+</body>
+</html>
+
