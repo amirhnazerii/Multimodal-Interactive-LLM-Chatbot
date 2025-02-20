@@ -47,7 +47,7 @@ pip install flask flask-cors openai requests argparse python-dotenv
 
 ## How to Run:
 
-### 1. Extract the files from the email/sent attachment and have tehm in same directory.
+### 1. Extract the files from the email/sent attachment and have them in same directory.
 
 ### 2. Install dependencies: 
 ```
@@ -73,7 +73,7 @@ Once the app is launched, you can:
 * Upload images for AI analysis (in the web UI or CLI mode).
 
 
-## Example Interaction:
+## Chatbot Interaction:
 
 [![Watch the demo](/demonstration/Custom-Multimodal-Interactive-LLM-Chatbot.png)](https://www.youtube.com/watch?v=HxUQpRkIVw4)
 
