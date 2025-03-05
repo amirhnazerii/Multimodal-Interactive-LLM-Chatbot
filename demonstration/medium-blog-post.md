@@ -173,6 +173,12 @@ This makes `o3` an ideal add-on for specialized chatbot applications requiring l
    ```
 3. **Interact via CLI or API**
 
+
+### Chatbot Interaction:
+
+[![Watch the demo](/demonstration/Custom-Multimodal-Interactive-LLM-Chatbot.png)](https://www.youtube.com/watch?v=HxUQpRkIVw4)
+
+
 ### Future Upgrades
 
 - **Integrate Speech-to-Text** for voice-based interactions.
