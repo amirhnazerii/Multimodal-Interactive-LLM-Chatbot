@@ -159,8 +159,7 @@ print(response["choices"][0]["message"]["content"])
 
 This makes `o3` an ideal add-on for specialized chatbot applications requiring logical rigor.
 
-## Deployment & Future Enhancements
-
+## Deployment
 ### Running the Chatbot
 
 1. **Install Dependencies**
